@@ -143,11 +143,11 @@ var LoginContainer = React.createClass({
     var username = localStorage.username;
     var password = localStorage.password;
     var token = localStorage.token;
-    console.log('logged in!');
+    // console.log('logged in!');
     var url = 'https://spider-man.herokuapp.com/login';
     // console.log(localStorage);
     $.get(url + '?username=' + username + '&password=' + password ).then(function(response){
-      console.log('get', response);
+      // console.log('get', response);
       localStorage.setItem('username', response.username);
       localStorage.setItem('token', response.sessionToken);
       if(token){

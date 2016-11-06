@@ -46,10 +46,15 @@ var AdjustRecipe = React.createClass({
 
   render: function(){
 
-    console.log('collection', recipeCollection);
+    // console.log('collection', recipeCollection);
     var collection = recipeCollection.map(function(recipe){
       return (
         <Ingredient key={recipe.cid} ingredients={recipe.get('ingredients')} />
+      );
+    });
+    var servingSize = recipeCollection.map(function(recipe){
+      return (
+        recipe.attributes.servingSize
       );
     });
     return (
@@ -60,7 +65,7 @@ var AdjustRecipe = React.createClass({
             <form className="form-inline">
               <div className="form-group">
                 <span><i>Makes</i></span>
-                <input type="text" className="form-control" id="exampleInputAmount" placeholder='serving size' />
+                <input type="text" className="form-control" id="exampleInputAmount" value={servingSize} />
                 <span><i>Servings</i></span>
               </div>
               <button type="submit" className="btn btn-primary">Adjust Recipe</button>
