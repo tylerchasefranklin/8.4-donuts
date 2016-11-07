@@ -23,6 +23,6 @@ var RecipeCollection = Backbone.Collection.extend({
 
 
 module.exports = {
-  Recipe : Recipe,
+  Recipe: Recipe,
   RecipeCollection: RecipeCollection
 };

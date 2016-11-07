@@ -71,18 +71,6 @@ var LoginForm = React.createClass({
     // console.log(password);
     this.setState({password: password})
   },
-  handleSubmit: function(e){
-    e.preventDefault();
-    // console.log('signed up!');
-    var signUpData = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.signUpNewUser(signUpData);
-    // console.log(signUpData);
-    this.setState({email: '', password: ''});
-  },
   render: function(){
     return (
       <form id="login" onSubmit={this.props.handleLogin}>

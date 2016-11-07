@@ -1,5 +1,6 @@
 var React = require('react');
 var RecipeCollection = require('../models/recipe.js').RecipeCollection;
+var RecipeForm = require('./recipeform.jsx').RecipeForm;
 
 
 var recipeCollection = new RecipeCollection();
@@ -14,7 +15,7 @@ recipeCollection.add([
       {"name": "butter", "unit": "tablespoons", "unitQty": 2}
     ]
   }
-])
+]);
 
 var Ingredient = React.createClass({
   render: function(){
@@ -65,7 +66,7 @@ var AdjustRecipe = React.createClass({
             <form className="form-inline">
               <div className="form-group">
                 <span><i>Makes</i></span>
-                <input type="text" className="form-control" id="exampleInputAmount" value={servingSize} />
+                <input type="text" className="form-control" id="exampleInputAmount" defaultValue={servingSize} />
                 <span><i>Servings</i></span>
               </div>
               <button type="submit" className="btn btn-primary">Adjust Recipe</button>
@@ -75,6 +76,7 @@ var AdjustRecipe = React.createClass({
             </ul>
 
           </div>
+          <RecipeForm />
         </div>
       </div>
     )
