@@ -5,12 +5,18 @@ var $ = require('jquery');
 
 var LoginContainer = require('./components/login.jsx').LoginContainer;
 var AdjustRecipe = require('./components/adjustrecipe.jsx').AdjustRecipe;
+var RecipeDetailContainer = require('./components/recipedetail.jsx').RecipeDetailContainer;
+var RecipeEdit = require('./components/recipeform.jsx').RecipeEdit;
 
 
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
     'home/': 'home',
+    'recipes/': 'recipeList',
+    'recipes/:id/': 'recipeDetail',
+    'recipes/add/': 'recipeAddEdit',
+    'recipes/:id/edit/': 'recipeAddEdit',
   },
   initialize: function(response){
     $.ajaxSetup({
@@ -48,6 +54,22 @@ var AppRouter = Backbone.Router.extend({
     // });
     ReactDOM.render(
       React.createElement(AdjustRecipe),
+      document.getElementById('app')
+    );
+  },
+  recipeDetail: function(recipeId){
+    console.log('recipe list working');
+
+    ReactDOM.render(
+      React.createElement(RecipeDetailContainer, {recipeId: recipeId}),
+      document.getElementById('app')
+    );
+  },
+  recipeAddEdit: function(recipeId){
+    console.log('add recipe page working');
+
+    ReactDOM.render(
+      React.createElement(RecipeDetailContainer, {recipeId: recipeId}),
       document.getElementById('app')
     );
   }

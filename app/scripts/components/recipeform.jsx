@@ -1,6 +1,5 @@
 var React = require('react');
-var Recipe = require('../models/recipe').Recipe;
-var RecipeCollection = require('../models/recipe').RecipeCollection;
+var models = require('../models/recipe')
 var $ = require('jquery');
 
 
@@ -8,8 +7,7 @@ var $ = require('jquery');
 var RecipeForm = React.createClass({
   getInitialState: function(){
     return {
-      recipe: new Recipe(),
-      recipeCollection: new RecipeCollection()
+      recipe: new models.Recipe(),
     };
   },
   handleTitle: function(e){
@@ -56,36 +54,40 @@ var RecipeForm = React.createClass({
   },
   render: function(){
     return (
-      <form className="form-horizontal" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="recipe-title" className="col-sm-2 control-label">Recipe Title</label>
-          <div className="col-sm-10">
-            <input type="text" value={this.state.title} onChange={this.handleTitle} className="form-control" id="recipe-title" placeholder="Title" />
+      <div>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="recipe-title" className="col-sm-2 control-label">Recipe Title</label>
+            <div className="col-sm-10">
+              <input type="text" value={this.state.title} onChange={this.handleTitle} className="form-control" id="recipe-title" placeholder="Title" />
+            </div>
           </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="recipe-ingredients" className="col-sm-2 control-label">Recipe Ingredients</label>
-          <div className="col-sm-10">
-            <input type="text" value={this.state.ingredients} onChange={this.handleIngredients} className="form-control" id="recipe-ingredients" placeholder="Ingredients" />
+          <div className="form-group">
+            <label htmlFor="recipe-ingredients" className="col-sm-2 control-label">Recipe Ingredients</label>
+            <div className="col-sm-10">
+              <input type="text" value={this.state.ingredients} onChange={this.handleIngredients} className="form-control" id="recipe-ingredients" placeholder="Ingredients" />
+            </div>
           </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="recipe-servings" className="col-sm-2 control-label">Amount of Servings</label>
-          <div className="col-sm-10">
-            <input type="text" value={this.state.servings} onChange={this.handleServings} className="form-control" id="recipe-servings" placeholder="Amount of Servings" />
+          <div className="form-group">
+            <label htmlFor="recipe-servings" className="col-sm-2 control-label">Amount of Servings</label>
+            <div className="col-sm-10">
+              <input type="text" value={this.state.servings} onChange={this.handleServings} className="form-control" id="recipe-servings" placeholder="Amount of Servings" />
+            </div>
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-offset-2 col-sm-10">
-            <button type="submit" className="btn btn-success">Submit Recipe!</button>
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-10">
+              <button type="submit" className="btn btn-success">Submit Recipe!</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     )
   }
 });
 
 
+
+
 module.exports = {
-  RecipeForm: RecipeForm
+  RecipeForm: RecipeForm,
 };
