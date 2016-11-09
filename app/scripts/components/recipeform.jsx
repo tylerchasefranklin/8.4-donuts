@@ -41,8 +41,8 @@ var RecipeForm = React.createClass({
   makeNewRecipe: function(recipeData){
     var data = {
       'title': recipeData.title,
-      'ingredients': recipeData.ingredients,
-      'servingsize': recipeData.servings
+      'servings': recipeData.servings,
+      'ingredients': recipeData.ingredients
     };
     var reponse = $.post('https://spider-man.herokuapp.com/classes/Recipes', data).then(function(response){
       console.log('test', response);

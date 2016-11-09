@@ -6,7 +6,7 @@ var Recipe = Backbone.Model.extend({
   urlRoot: 'https://spider-man.herokuapp.com/classes/Recipes',
   defaults: {
     title: '',
-    servingSize: '',
+    servings: '',
     ingredients: []
   }
 });
