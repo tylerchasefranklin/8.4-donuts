@@ -6,16 +6,19 @@ var AdjustRecipe = require('./adjustrecipe.jsx').AdjustRecipe;
 var RecipeDetailContainer = React.createClass({
   getInitialState: function(){
     return {
-      recipe: new models.Recipe()
+      recipe: new models.Recipe(),
+      ingredients: new models.IngredientCollection()
     }
   },
   componentWillMount: function(){
     var recipe = this.state.recipe;
     var recipeId = this.props.recipeId;
+    var ingredients = this.state.ingredients;
+    console.log(ingredients);
     var self = this;
     // console.log(recipeId);
     // console.log(recipe);
-    if(!recipe){
+    if(!recipeId){
       return;
     };
 
@@ -23,9 +26,13 @@ var RecipeDetailContainer = React.createClass({
     recipe.fetch().then(function(){
       self.setState({recipe: recipe});
     });
+    ingredients.fetch().then(function(){
+      self.setState({ingredients: ingredients});
+    });
   },
   render: function(){
     var recipe = this.state.recipe;
+    var ingredients = this.state.ingredients;
     return (
       <div>
         <div>
@@ -33,7 +40,7 @@ var RecipeDetailContainer = React.createClass({
           <ul className="list-group">
             <li className="list-group-item">{recipe.attributes.title}:</li>
             <li className="list-group-item">{recipe.attributes.servings} serving(s)</li>
-            <li className="list-group-item">{recipe.attributes.ingredients}</li>
+            <li className="list-group-item">{ingredients.name}</li>
           </ul>
           <AdjustRecipe recipe={this.state.recipe} recipeId={this.props.recipeId}/>
           <RecipeEdit recipe={this.state.recipe} recipeId={this.props.recipeId}/>

@@ -49,9 +49,6 @@ var AppRouter = Backbone.Router.extend({
   home: function(){
     // console.log('home screen working');
 
-    // $.get('https://spider-man.herokuapp.com/classes/Donut').then(function(data){
-    //   console.log(data);
-    // });
     ReactDOM.render(
       React.createElement(RecipeList),
       document.getElementById('app')

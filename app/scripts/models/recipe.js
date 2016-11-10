@@ -1,6 +1,44 @@
 var Backbone = require('backbone');
 
-var Ingredient = Backbone.Model.extend({
+var ParseModel = Backbone.Model.extend({
+  idAttribute: 'objectId',
+  save: function(key, val, options){
+    delete this.attributes.createdAt;
+    delete this.attributes.updatedAt;
+
+    return Backbone.Model.prototype.save.apply(this, arguments);
+  }
+});
+
+var ParseCollection = Backbone.Collection.extend({
+  whereClause: {field: '', className: '', objectId: ''},
+  parseWhere: function(field, className, objectId){
+    this.whereClause = {
+      field: field,
+      className: className,
+      objectId: objectId,
+      '__type': 'Pointer'
+    };
+
+    return this;
+  },
+  url: function(){
+    var url = this.baseUrl;
+
+    if (this.whereClause.field){
+      var field = this.whereClause.field;
+      delete this.whereClause.field;
+      url += '?where={"' + field + '":' + JSON.stringify(this.whereClause) + '}';
+    }
+
+    return url;
+  },
+  parse: function(data){
+    return data.results;
+  }
+});
+
+var Ingredient = ParseModel.extend({
   urlRoot: 'https://spider-man.herokuapp.com/classes/Ingredients',
   idAttribute: 'objectId',
   defaults: {
@@ -10,7 +48,7 @@ var Ingredient = Backbone.Model.extend({
   },
 });
 
-var IngredientCollection = Backbone.Collection.extend({
+var IngredientCollection = ParseCollection.extend({
   model: Ingredient,
   url: 'https://spider-man.herokuapp.com/classes/Ingredients',
   parse: function(data){
@@ -19,18 +57,18 @@ var IngredientCollection = Backbone.Collection.extend({
   }
 });
 
-var Recipe = Backbone.Model.extend({
+var Recipe = ParseModel.extend({
   idAttribute: 'objectId',
   urlRoot: 'https://spider-man.herokuapp.com/classes/Recipes',
   defaults: {
     title: '',
-    servings: 0,
+    servings: '',
     ingredients: []
   }
 });
 
 
-var RecipeCollection = Backbone.Collection.extend({
+var RecipeCollection = ParseCollection.extend({
   model: Recipe,
   url: 'https://spider-man.herokuapp.com/classes/Recipes',
   parse: function(data){
