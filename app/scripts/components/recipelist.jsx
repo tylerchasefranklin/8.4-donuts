@@ -1,6 +1,7 @@
 var React = require('react');
 var models = require('../models/recipe');
-var $ = require('jquery')
+var $ = require('jquery');
+var RecipeAddEditForm = require('./recipeform.jsx').RecipeAddEditForm;
 
 var RecipeList = React.createClass({
   getInitialState: function(){
@@ -11,7 +12,7 @@ var RecipeList = React.createClass({
   componentWillMount: function(){
     var self = this;
     var recipeCollection = this.state.recipeCollection;
-    var url = 'https://spider-man.herokuapp.com/classes/Recipes';
+    // var url = 'https://spider-man.herokuapp.com/classes/Recipes';
     var recipeList = recipeCollection.fetch().then(function(data){
       // console.log(data.results);
       self.setState({recipeCollection: data.results})
@@ -26,10 +27,13 @@ var RecipeList = React.createClass({
     });
     return (
       <div className="col-md-12">
-        <p>Recipes</p>
-        <div className="list-group">
-          {recipes}
+        <div>
+          <p>Recipes</p>
+          <div className="list-group">
+            {recipes}
+          </div>
         </div>
+        <RecipeAddEditForm />
       </div>
     )
   }

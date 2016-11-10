@@ -10,7 +10,7 @@ var User = Backbone.Model.extend({
     var password = this.get('password');
 
     this.save().then(function(data){
-      console.log(data);
+      // console.log(data);
       localStorage.setItem('user', JSON.stringify(self.toJSON()));
     });
   }

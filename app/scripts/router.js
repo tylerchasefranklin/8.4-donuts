@@ -4,9 +4,9 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var LoginContainer = require('./components/login.jsx').LoginContainer;
-var AdjustRecipe = require('./components/adjustrecipe.jsx').AdjustRecipe;
+
 var RecipeDetailContainer = require('./components/recipedetail.jsx').RecipeDetailContainer;
-var RecipeEdit = require('./components/recipeform.jsx').RecipeEdit;
+var RecipeList = require('./components/recipelist.jsx').RecipeList;
 
 
 var AppRouter = Backbone.Router.extend({
@@ -47,18 +47,18 @@ var AppRouter = Backbone.Router.extend({
     );
   },
   home: function(){
-    console.log('home screen working');
+    // console.log('home screen working');
 
     // $.get('https://spider-man.herokuapp.com/classes/Donut').then(function(data){
     //   console.log(data);
     // });
     ReactDOM.render(
-      React.createElement(AdjustRecipe),
+      React.createElement(RecipeList),
       document.getElementById('app')
     );
   },
   recipeDetail: function(recipeId){
-    console.log('recipe list working');
+    // console.log('recipe detail working');
 
     ReactDOM.render(
       React.createElement(RecipeDetailContainer, {recipeId: recipeId}),
