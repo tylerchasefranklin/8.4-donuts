@@ -52,7 +52,7 @@ var IngredientCollection = ParseCollection.extend({
   model: Ingredient,
   url: 'https://spider-man.herokuapp.com/classes/Ingredients',
   parse: function(data){
-    console.log('recipe parse', data);
+    // console.log('recipe parse', data);
     return data.results;
   }
 });
