@@ -1,6 +1,7 @@
 var React = require('react');
 var models = require('../models/recipe');
 var $ = require('jquery');
+var Backbone = require('backbone');
 
 // var IngredientForm = React.createClass({
 //   getInitialState: function(){
@@ -164,9 +165,9 @@ var Form = React.createClass({
             <input type="text" value={this.state.servings} onChange={this.handleServings} className="form-control" id="recipe-servings" placeholder="Amount of Servings" />
           </div>
         </div>
-        <h2>Ingredients <button type="button" onClick={this.addIngredient} className="pull-right btn btn-success">Add Ingredient</button></h2>
 
         <div className="form-group">
+          <h3>First Ingredient</h3>
           <div className="col-sm-10">
             <div id="ingredients" className="form-group">
               <label className="" htmlFor="ingredient-amount">Amount:</label>
