@@ -134,7 +134,7 @@ var Form = React.createClass({
         ingredient.save();
       });
     });
-
+    
 
   //   var reponse = $.post('https://spider-man.herokuapp.com/classes/Recipes', data).then(function(response){
   //     // console.log('test', response);

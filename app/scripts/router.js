@@ -7,6 +7,7 @@ var LoginContainer = require('./components/login.jsx').LoginContainer;
 
 var RecipeDetailContainer = require('./components/recipedetail.jsx').RecipeDetailContainer;
 var RecipeList = require('./components/recipelist.jsx').RecipeList;
+var RecipeEdit = require('./components/recipeedit.jsx').RecipeEdit;
 
 
 var AppRouter = Backbone.Router.extend({
@@ -66,7 +67,7 @@ var AppRouter = Backbone.Router.extend({
     console.log('add recipe page working');
 
     ReactDOM.render(
-      React.createElement(RecipeDetailContainer, {recipeId: recipeId}),
+      React.createElement(RecipeEdit),
       document.getElementById('app')
     );
   }

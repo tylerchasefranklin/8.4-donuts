@@ -50,11 +50,11 @@ var Ingredient = ParseModel.extend({
 
 var IngredientCollection = ParseCollection.extend({
   model: Ingredient,
-  url: 'https://spider-man.herokuapp.com/classes/Ingredients',
-  parse: function(data){
-    // console.log('recipe parse', data);
-    return data.results;
-  }
+  baseUrl: 'https://spider-man.herokuapp.com/classes/Ingredients',
+  // parse: function(data){
+  //   // console.log('recipe parse', data);
+  //   return data.results;
+  // }
 });
 
 var Recipe = ParseModel.extend({
@@ -64,6 +64,12 @@ var Recipe = ParseModel.extend({
     title: '',
     servings: '',
     ingredients: []
+  },
+
+  parse: function(data){
+    // Convert ingredients array from parse to collection
+    data.ingredients = new IngredientCollection(data.ingredients);
+    return data;
   }
 });
 
@@ -71,10 +77,10 @@ var Recipe = ParseModel.extend({
 var RecipeCollection = ParseCollection.extend({
   model: Recipe,
   url: 'https://spider-man.herokuapp.com/classes/Recipes',
-  parse: function(data){
-    // console.log('recipe parse', data);
-    return data.results;
-  }
+  // parse: function(data){
+  //   // console.log('recipe parse', data);
+  //   return data.results;
+  // }
 });
 
 

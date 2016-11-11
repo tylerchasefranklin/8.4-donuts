@@ -28,7 +28,7 @@ var RecipeList = React.createClass({
     return (
       <div className="col-md-12">
         <div>
-          <p>Recipes</p>
+          <h1>Recipes</h1>
           <div className="list-group">
             {recipes}
           </div>
