@@ -5765,4 +5765,11 @@ button.close {
 
 img {
   max-width: 100%; }
+
+.recipe-list {
+  text-align: center; }
+
+.recipe-form-heading {
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */
