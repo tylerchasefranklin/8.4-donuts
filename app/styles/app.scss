@@ -20,6 +20,45 @@ img {
   text-align: center;
 }
 
+.recipe-list-heading {
+  background-color: beige;
+  display: inline;
+  color: black;
+  padding: 15px;
+  border: 4px solid;
+  border-color: black;
+  text-decoration: underline;
+  text-decoration-color: black;
+  border-radius: 10px;
+}
+
 .recipe-form-heading {
   text-align: center;
+  text-decoration: underline;
+}
+
+.title {
+  text-align: center;
+}
+
+body {
+
+}
+
+.login-screen {
+
+}
+
+.recipe-screen {
+  background-image: url(http://www.bccdc.ca/Health-Info-Site/PublishingImages/food-your-health/foodphoto.jpg);
+  background-size: cover;
+  color: white;
+}
+
+.recipe-form {
+  border: 4px solid;
+  border-color: black;
+  border-radius: 15px;
+  background-color: beige;
+  color: black;
 }

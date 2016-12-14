@@ -34,15 +34,19 @@ var RecipeList = React.createClass({
       }
     });
     return (
-      <div>
+      <div className="recipe-screen">
         <Navbar />
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <h1 className="recipe-list">Recipes</h1>
+            <div className="recipe-list col-md-12">
+              <h1 className="recipe-list-heading">Recipes</h1>
               <div className="list-group">
                 {recipes}
               </div>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
             </div>
             <RecipeAddEditForm />
           </div>

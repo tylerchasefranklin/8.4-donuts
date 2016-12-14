@@ -81,41 +81,43 @@ var RecipeForm = React.createClass({
     return (
       <form className="form-horizontal" onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label htmlFor="recipe-title" className="col-md-2 control-label">Recipe Title:</label>
+          <label htmlFor="recipe-title" className="col-md-2 col-md-offset-2 control-label">Recipe Title:</label>
           <div className="col-md-4">
             <input type="text" value={this.state.title} onChange={this.handleTitle} className="form-control" id="recipe-title" placeholder="Title" />
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="recipe-servings" className="col-md-2 control-label">Amount of Servings:</label>
+          <label htmlFor="recipe-servings" className="col-md-2 col-md-offset-2 control-label">Amount of Servings:</label>
           <div className="col-md-4">
             <input type="text" value={this.state.servings} onChange={this.handleServings} className="form-control" id="recipe-servings" placeholder="Amount of Servings" />
           </div>
         </div>
         <br></br>
-        <br></br>
-        <h4 className="col-md-offset-1">First Ingredient:</h4>
+        <h4 className="col-md-offset-3">First Ingredient:</h4>
         <div id="ingredients">
           <div className="form-group">
-            <label className="col-md-2 control-label" htmlFor="ingredient-amount">Amount:</label>
+            <label className="col-md-2 col-md-offset-2 control-label" htmlFor="ingredient-amount">Amount:</label>
             <div className="col-md-4">
               <input onChange={this.handleAmount} type="text" className="form-control" name="amount" id="ingredient-amount" placeholder="Amount" value={this.state.amount} />
             </div>
           </div>
           <div className="form-group">
-            <label className="col-md-2 control-label" htmlFor="ingredient-units">Units:</label>
+            <label className="col-md-2 col-md-offset-2 control-label" htmlFor="ingredient-units">Units:</label>
             <div className="col-md-4">
               <input onChange={this.handleUnits} type="text" className="form-control" name="units" id="ingredient-units" placeholder="Units" value={this.state.units} />
             </div>
           </div>
           <div className="form-group">
-            <label className="col-md-2 control-label" htmlFor="ingredient-name">Name:</label>
+            <label className="col-md-2 col-md-offset-2 control-label" htmlFor="ingredient-name">Name:</label>
             <div className="col-md-4">
               <input onChange={this.handleName} type="text" className="form-control" name="name" id="ingredient-name" placeholder="Name" value={this.state.name} />
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btn-success">Submit Recipe!</button>
+        <button type="submit" className="col-md-offset-3 btn btn-success">Submit Recipe!</button>
+        <br></br>
+        <br></br>
+        <br></br>
       </form>
     )
   }
@@ -131,8 +133,11 @@ var RecipeAddEditForm = React.createClass({
 
   render: function(){
     return (
-      <div className="col-md-12">
+      <div className="recipe-form col-md-12">
+        <br></br>
         <h1 className="recipe-form-heading">Submit Your Own Recipe!</h1>
+        <br></br>
+        <br></br>
         <RecipeForm  recipe={this.state.recipe} />
       </div>
     )

@@ -143,7 +143,14 @@ var LoginContainer = React.createClass({
   },
   render: function(){
     return (
-      <div className="container">
+      <div className="login-screen container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <h1 className="title">The BatchMaker App</h1>
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="row">
           <div className="col-md-6">
             <LoginForm />
