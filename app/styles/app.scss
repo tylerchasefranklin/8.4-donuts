@@ -62,3 +62,26 @@ body {
   background-color: beige;
   color: black;
 }
+
+.recipes {
+  margin-top: 50px;
+}
+
+.list-group-item {
+  border: 3px solid !important;
+  border-color: black !important;
+  background-color: beige;
+  border-radius: 15px;
+}
+
+.list-group-item:first-child {
+  border-radius: 15px;
+}
+
+.list-group-item:last-child {
+  border-radius: 15px;
+}
+
+.recipe-item {
+  color: black;
+}

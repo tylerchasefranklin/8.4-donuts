@@ -30,42 +30,25 @@ var AppRouter = Backbone.Router.extend({
       }
     });
   },
-  // overload the execute method so we can check for logged in user
-  // redirect to login screen if not logged in
-  // execute: function(callback, args, name){
-  //   var user = User.current();
-  //   if (!user){
-  //     this.navigate('login/', {trigger: true});
-  //     return;
-  //   }
-  //   return Backbone.Router.prototype.execute.call(this,callback, args, name);
-  // },
   index: function(){
-    // console.log('index screen working');
     ReactDOM.render(
       React.createElement(LoginContainer),
       document.getElementById('app')
     );
   },
   home: function(){
-    // console.log('home screen working');
-
     ReactDOM.render(
       React.createElement(RecipeList),
       document.getElementById('app')
     );
   },
   recipeDetail: function(recipeId){
-    // console.log('recipe detail working');
-
     ReactDOM.render(
       React.createElement(RecipeDetailContainer, {recipeId: recipeId}),
       document.getElementById('app')
     );
   },
   recipeAddEdit: function(recipeId){
-    console.log('add recipe page working');
-
     ReactDOM.render(
       React.createElement(RecipeEdit),
       document.getElementById('app')

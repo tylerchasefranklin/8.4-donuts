@@ -53,33 +53,29 @@ var RecipeDetailContainer = React.createClass({
     });
     return (
       <div>
-        <div>
-          <h1>Recipe Detail:</h1>
-          <ul className="list-group">
-            <li className="list-group-item">{recipe.attributes.title}:</li>
-            <li className="list-group-item">{recipe.attributes.servings} serving(s)</li>
-            {ingredientItem}
-          </ul>
-          <AdjustRecipe recipe={this.state.recipe} recipeId={this.props.recipeId}/>
-          <RecipeEdit recipe={this.state.recipe} recipeId={this.props.recipeId}/>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Recipe Detail:</h1>
+              <ul className="list-group col-md-6">
+                <label htmlFor="recipe-title" className="control-label">Recipe Title:</label>
+                <li className="list-group-item" id="recipe-title">{recipe.attributes.title}</li>
+                <br></br>
+                <label htmlFor="recipe-servings" className="control-label">Servings:</label>
+                <li className="list-group-item" id="recipe-servings">{recipe.attributes.servings} serving(s)</li>
+                <br></br>
+                <label className="control-label">Ingredients:</label>
+                {ingredientItem}
+              </ul>
+            </div>
+          </div>
         </div>
+            <AdjustRecipe recipe={this.state.recipe} recipeId={this.props.recipeId}/>
+            <RecipeEdit recipe={this.state.recipe} recipeId={this.props.recipeId}/>
       </div>
     )
   }
 });
-
-
-
-
-// <div>
-//   <h1>Recipe Detail</h1>
-//   <ul className="list-group">
-//     <li className="list-group-item">{recipe.attributes.title}:</li>
-//     <li className="list-group-item">{recipe.attributes.servings} serving(s)</li>
-//     <li className="list-group-item">{recipe.attributes.ingredients}</li>
-//   </ul>
-//   <RecipeEdit recipe={this.state.recipe} recipeId={this.props.recipeId}/>
-// </div>
 
 module.exports = {
   RecipeDetailContainer: RecipeDetailContainer

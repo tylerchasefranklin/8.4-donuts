@@ -29,7 +29,7 @@ var RecipeList = React.createClass({
       // console.log(recipe);
       if(userId === recipe.user.objectId){
         return (
-          <p className="list-group-item col-md-2" key={recipe.title}><a href={'#recipes/' + recipe.objectId + '/'}>{recipe.title}</a></p>
+          <li className="list-group-item well col-md-2" key={recipe.title}><a className="recipe-item" href={'#recipes/' + recipe.objectId + '/'}>{recipe.title}</a></li>
         )
       }
     });
@@ -40,7 +40,7 @@ var RecipeList = React.createClass({
           <div className="row">
             <div className="recipe-list col-md-12">
               <h1 className="recipe-list-heading">Recipes</h1>
-              <div className="list-group">
+              <div className="list-group recipes">
                 {recipes}
               </div>
               <br></br>

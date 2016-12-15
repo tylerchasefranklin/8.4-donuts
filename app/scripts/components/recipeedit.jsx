@@ -14,9 +14,6 @@ var RecipeEdit = React.createClass({
     var recipeId = this.props.recipeId;
     var self = this;
     var ingredients = this.state.ingredients;
-    // console.log('recipe', recipe);
-    // console.log('recipeId', recipeId);
-
     if(!recipeId){
       return;
     };
@@ -27,55 +24,34 @@ var RecipeEdit = React.createClass({
     });
     ingredients.fetch().then(function(){
       self.setState({ingredients: ingredients});
-      // console.log('ingredients will mount', ingredients);
     });
   },
-  // },
-  // componentWillReceiveProps: function(){
-  //   this.getRecipe();
-  // },
-  // getRecipe: function(){
-  //   var recipe = this.props.recipe;
-  //   var recipeId = this.props.recipeId;
-  //   var self = this;
-  //   console.log('recipe', recipe);
-  //   console.log('recipeId', recipeId);
-  //
-  //   if(!recipeId){
-  //     return;
-  //   };
-
-    // recipe.set('objectId', recipeId);
-    // recipe.fetch().then(function(){
-    //   self.setState({recipe: recipe});
-    // });
-  // },
   render: function(){
     var recipe = this.state.recipe;
     var recipeId = this.props.recipeId;
     var self = this;
-    // console.log('recipeId', recipeId);
     var ingredients = this.state.ingredients;
-    // console.log('ingredients', ingredients);
     var ingredientItem = ingredients.map(function(ingredientCollection){
-      // console.log('ingredientId', ingredientCollection.id);
-      // console.log('recipe id', ingredientCollection.attributes.recipe.objectId);
-      // console.log('recipe id', recipeId);
       if(recipeId === ingredientCollection.attributes.recipe.objectId){
         return (
           <li className="list-group-item" key={ingredientCollection.attributes.name}>{ingredientCollection.attributes.amount} {ingredientCollection.attributes.units} of {ingredientCollection.attributes.name}</li>
         );
       };
     });
-    // console.log(recipe);
     return (
-      <div>
-        <h1>Edit Recipe:</h1>
-        <h2>{recipe.attributes.title}</h2>
-        <ul className="list-group">
-          {ingredientItem}
-        </ul>
-        <IngredientForm recipe={this.props.recipe} ingredients={this.state.ingredients} recipeId={this.props.recipeId}/>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1>Edit Recipe:</h1>
+            <div className="col-md-6">
+              <h2>{recipe.attributes.title}</h2>
+              <ul className="list-group">
+                {ingredientItem}
+              </ul>
+              <IngredientForm recipe={this.props.recipe} ingredients={this.state.ingredients} recipeId={this.props.recipeId}/>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -142,7 +118,7 @@ var IngredientForm = React.createClass({
   },
   render: function(){
     return (
-      <div className="col-sm-10">
+      <div className="">
         <div id="ingredients" className="form-group">
           <label className="" htmlFor="ingredient-amount">Amount:</label>
           <input onChange={this.handleAmount} type="text" className="form-control" name="amount" id="ingredient-amount" placeholder="Amount" value={this.state.amount} />
